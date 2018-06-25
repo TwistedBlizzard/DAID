@@ -60,3 +60,4 @@ target/
 # Custom
 venv/
 downloads/
+.DS_Store
