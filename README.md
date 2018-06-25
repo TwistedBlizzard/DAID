@@ -9,9 +9,9 @@ DAID is a programmatic image downloader for DeviantArt written in Python by Josh
 This project requires Python 3 with Selenium and a Google Chrome WebDriver.
 
 Install Selenium through pip
-'''
+```
 pip install selenium
-'''
+```
 You will then need to follow this [guide](http://chromedriver.chromium.org/getting-started) to install the Google Chrome WebDriver.
 
 ### Running DAID
