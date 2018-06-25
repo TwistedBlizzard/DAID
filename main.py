@@ -64,7 +64,10 @@ class DAScraper:
             except TimeoutException:
                 results = driver.find_elements(By.XPATH, "//a[@class='torpedo-thumb-link']")
                 for result in results:
-                    result_url = result.get_attribute('href')
+                    try:
+                        result_url = result.get_attribute('href')
+                    except StaleElementReferenceException:
+                        continue
                     if result_url not in result_urls:
                         result_urls.append(result_url)
                 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
