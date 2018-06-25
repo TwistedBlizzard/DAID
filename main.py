@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, StaleElementReferenceException
 
-import urllib, subprocess, os
+import urllib, os
 
 class DAScraper:
     def __init__(self, term):
@@ -89,8 +89,8 @@ class DAScraper:
 
     def download(self):
         for url in self.queue:
-            subprocess.call(['curl', '-O', '-g', '-s', '--url', url])
-            self.downloaded += 1
+            file = url.split('/')[-1]
+            urllib.request.urlretrieve(url, file)
 
 if __name__ == '__main__':
     term = input('Search Term: ')
